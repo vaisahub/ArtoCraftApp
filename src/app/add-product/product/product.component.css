@@ -1,0 +1,45 @@
+    .controlers-container {
+        width: 100%;
+        padding: 5%
+    }
+    
+    .controlers-container>* {
+        width: 300%;
+        padding: 5%
+    }
+    
+    .example-container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .example-container>* {
+        width: 100%;
+    }
+    
+    button {
+        margin-left: 2%
+    }
+    
+    table {
+        width: 100%;
+    }
+    
+    .img-res {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    .square {
+        height: 105px;
+        width: 105px;
+    }
+    
+    td {
+        margin-left: 5%;
+        justify-content: ceter;
+    }
+    
+    .float-right {
+        float: right;
+    }

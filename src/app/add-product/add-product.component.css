@@ -1,0 +1,11 @@
+.fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+div.container {
+    margin: 0px, 40px;
+}
+
+form.normal-form {
+    margin: 10px
+}

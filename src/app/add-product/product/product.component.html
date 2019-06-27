@@ -1,0 +1,131 @@
+<div class="modal fade " id="squarespaceModal" tabindex="-1 " role="dialog " aria-labelledby="modalLabel " aria-hidden="true ">
+    <div class="modal-dialog ">
+        <div class="modal-content ">
+            <div class="modal-header ">
+                <h3 class="modal-title logo " id="lineModalLabel ">Welcome to<span>  ArtoCart Family </span></h3>
+                <button type="button " class="close " data-dismiss="modal"><span aria-hidden="true ">×</span><span class="sr-only ">Close</span></button>
+
+            </div>
+            <div class="modal-body ">
+
+
+
+                <form class="normal-form" [formGroup]="prodServ.form">
+
+                    <div class="example-container">
+
+
+
+                        <mat-form-field>
+                            <input matInput formControlName="item_name" placeholder="Product Name*">
+                            <mat-error *ngIf="prodServ.form.controls['item_name'].errors?.minlength">Min length should be 5</mat-error>
+                            <mat-error *ngIf="prodServ.form.controls['item_name'].errors?.required">This field is mandatory</mat-error>
+                        </mat-form-field>
+
+
+                        <mat-form-field>
+                            <input matInput formControlName="item_price" placeholder="Product Price*">
+                            <mat-error>This field is mandatory</mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput formControlName="item_desc" placeholder="Product Description*">
+                            <mat-error *ngIf="prodServ.form.controls['item_desc'].errors?.minlength">Min length should be 5</mat-error>
+                            <mat-error *ngIf="prodServ.form.controls['item_desc'].errors?.required">This field is mandatory</mat-error>
+                        </mat-form-field>
+
+                        <input type="file" formControlName="item_image" placeholder="Product Description*">
+
+                        <mat-error *ngIf="prodServ.form.controls['item_image'].errors?.required">This field is mandatory</mat-error>
+
+                        <!-- <mat-form-field>
+                            <mat-form-field>
+                                <input matInput formControlName="item_seller" placeholder="Product seller*">
+
+                                <mat-error *ngIf="prodServ.form.controls['item_seller'].errors?.required">This field is mandatory</mat-error>
+                            </mat-form-field> -->
+
+                        <!-- 
+                            <mat-select formControlName="item_seller" placeholder="Select*">
+                                <ng-container *ngFor="let seller of sellers">
+                                <mat-option>dummy seller</mat-option>
+
+                                </ng-container>
+
+
+                            </mat-select> -->
+                        <!-- <mat-error>This field is mandatory</mat-error> -->
+                        <!-- </mat-form-field> -->
+
+
+
+                        <div class="button-row">
+                            <button (click)="onSubmit()" [disabled]="prodServ.form.invalid" mat-raised-button color="primary" type="submit">Submit </button>
+                            <button (click)="onClear()" mat-raised-button color="warn">Clear </button>
+                        </div>
+
+                    </div>
+
+
+                </form>
+
+
+
+
+            </div>
+            <div class="modal-footer ">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table class="pl-2" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+    <ng-container matColumnDef="position">
+        <th class="mr-2" mat-header-cell *matHeaderCellDef> No. </th>
+        <td class="square" mat-cell *matCellDef="let element">
+            <img class="img-res" src="{{element.item_image}}">
+
+
+        </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Item Name </th>
+        <td mat-cell class="justfy-content-center" *matCellDef="let element"> {{ element.item_name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="desc">
+        <th mat-header-cell *matHeaderCellDef> item desc </th>
+        <td mat-cell class="ml-2" *matCellDef="let element"> {{ element.item_desc}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell class="ml-2" *matCellDef="let element"> {{element.item_price}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="seller">
+        <th mat-header-cell *matHeaderCellDef> Seller </th>
+        <td mat-cell class="ml-2" *matCellDef="let element"> {{ showSellerclient(element.item_seller)}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell class="ml-2" *matCellDef="let row">
+            <button mat-icon-button><mat-icon>launch</mat-icon></button>
+            <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<div class="float-right">
+    <button data-toggle="modal" class="btn btn-success mt-2" data-target="#squarespaceModal" mat-icon-button><mat-icon>add</mat-icon></button>
+</div>
