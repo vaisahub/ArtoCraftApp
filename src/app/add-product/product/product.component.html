@@ -91,7 +91,7 @@
     <th> Seller </th>
 
 
-    <ng-container ngFor="let element of dataSource">
+    <ng-container *ngFor="let element of dataSource">
         <td class="square">
             <img class="img-res" src="{{element.item_image}}">
 
