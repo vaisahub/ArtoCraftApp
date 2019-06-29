@@ -1,0 +1,13 @@
+{
+  "serverless": {
+    "provider": "aws",
+    "skipInstall": false,
+    "directory": ".",
+    "project": "BottleArtApp",
+    "clientProject": "BottleArtApp",
+    "serverless": {
+      "aws": {},
+      "gcloud": {}
+    }
+  }
+}
