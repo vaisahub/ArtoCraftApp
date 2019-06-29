@@ -34,6 +34,8 @@
     "@angular/router": "^6.0.0",
     "@auth0/angular-jwt": "^2.1.0",
     "@ng-toolkit/serverless": "^7.1.2",
+    "@ng-toolkit/universal": "^7.1.2",
+    "@schematics/angular": "^8.0.6",
     "adm-zip": ">=0.4.11",
     "aws-serverless-express": "^3.2.0",
     "bootstrap": "^4.3.1",
