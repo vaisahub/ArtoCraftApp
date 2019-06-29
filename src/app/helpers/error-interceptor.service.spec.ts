@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { ErrorInterceptorService } from './error-interceptor.service';
+import { ErrorInterceptor } from './error-interceptor.service';
 
-describe('ErrorInterceptorService', () => {
+describe('ErrorInterceptor', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ErrorInterceptorService]
+      providers: [ErrorInterceptor]
     });
   });
 
-  it('should be created', inject([ErrorInterceptorService], (service: ErrorInterceptorService) => {
+  it('should be created', inject([ErrorInterceptor], (service: ErrorInterceptor) => {
     expect(service).toBeTruthy();
   }));
 });

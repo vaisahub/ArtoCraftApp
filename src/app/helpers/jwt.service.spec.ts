@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { JwtService } from './jwt.service';
+import { JwtInterceptor } from './jwt.service';
 
 describe('JwtService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [JwtService]
+      providers: [JwtInterceptor]
     });
   });
 
-  it('should be created', inject([JwtService], (service: JwtService) => {
+  it('should be created', inject([JwtInterceptor], (service: JwtInterceptor) => {
     expect(service).toBeTruthy();
   }));
 });
