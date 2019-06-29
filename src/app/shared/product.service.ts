@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validator, Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Item } from './user';
-
+import * as JWT from 'jwt-decode';
 @Injectable({
   providedIn: 'root'
 })
@@ -36,7 +36,9 @@ export class ProductService {
     //  let user1={user['username'];user['password']}
     console.log("list")
     let token = localStorage.getItem("token")
-    return this.httpClient.get<any>(`https://qf2vytt1i7.execute-api.us-east-1.amazonaws.com/dev/api/v1/items/seller/owned/`+'1')
+    var decoded = JWT(token);
+    console.log(decoded);
+    return this.httpClient.get<any>(`https://qf2vytt1i7.execute-api.us-east-1.amazonaws.com/dev/api/v1/items/seller/owned/`+"1")
       .pipe(map(products => {
         // login successful if there's a jwt token in the response
         // if (user && user.token) {
