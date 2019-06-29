@@ -80,50 +80,48 @@
 </div>
 
 
-<table class="pl-2" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table class="pl-2" mat-table class="mat-elevation-z8">
 
 
-    <ng-container matColumnDef="position">
-        <th class="mr-2" mat-header-cell *matHeaderCellDef> No. </th>
-        <td class="square" mat-cell *matCellDef="let element">
+
+    <th class="mr-2"> </th>
+    <th class="mr-2"> Item Name </th>
+    <th class="mr-2"> item desc </th>
+    <th class="mr-2"> Price </th>
+    <th> Seller </th>
+
+
+    <ng-container ngFor="let element of dataSource">
+        <td class="square">
             <img class="img-res" src="{{element.item_image}}">
 
 
         </td>
-    </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Item Name </th>
-        <td mat-cell class="justfy-content-center" *matCellDef="let element"> {{ element.item_name}} </td>
-    </ng-container>
+        <td class="justfy-content-center"> {{ element.item_name}} </td>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="desc">
-        <th mat-header-cell *matHeaderCellDef> item desc </th>
-        <td mat-cell class="ml-2" *matCellDef="let element"> {{ element.item_desc}} </td>
-    </ng-container>
 
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="price">
-        <th mat-header-cell *matHeaderCellDef> Price </th>
-        <td mat-cell class="ml-2" *matCellDef="let element"> {{element.item_price}} </td>
-    </ng-container>
 
-    <ng-container matColumnDef="seller">
-        <th mat-header-cell *matHeaderCellDef> Seller </th>
-        <td mat-cell class="ml-2" *matCellDef="let element"> {{ showSellerclient(element.item_seller)}} </td>
-    </ng-container>
+        <td class="ml-2"> {{ element.item_desc}} </td>
 
-    <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef> </th>
-        <td mat-cell class="ml-2" *matCellDef="let row">
+
+
+        <td class="ml-2"> {{element.item_price}} </td>
+
+
+
+        <!-- <td class="ml-2"> {{ showSellerclient(element.item_seller)}} </td> -->
+
+
+
+        <td class="ml-2">
             <button mat-icon-button><mat-icon>launch</mat-icon></button>
             <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
         </td>
+
+
+
     </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
 <div class="float-right">

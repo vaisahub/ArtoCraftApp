@@ -68,7 +68,7 @@ export class ProductComponent implements OnInit {
   }
     ngOnInit(){
 
-      this.prodServ.showProduct()
+      this.prodServ.showProductSeller()
         .pipe(first())
         .subscribe(data => {
 
