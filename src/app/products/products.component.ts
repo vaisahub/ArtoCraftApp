@@ -11,6 +11,7 @@ import { NotificationService } from '../shared/notification.service';
 })
 export class ProductsComponent implements OnInit {
   dataSource = [];
+  seller =[]
   constructor(private prodServ: ProductService,private notfserv:NotificationService) { }
  
   ngOnInit() {
@@ -27,5 +28,22 @@ export class ProductsComponent implements OnInit {
 
           });
   }
+  showSeller(api:string){
+    // alert(api)
+      this.prodServ.showSell(api)
+      .pipe(first())
+      .subscribe(data => {
+  
+        this.seller = data;
+      
+      },
+        error => {
+    //  alert(error)
+          this.notfserv.success("Oops !! Login seller not found !!" + error);
+  
+        });
+        // alert(this.seller)
+        return this.seller
 
+    }
 }

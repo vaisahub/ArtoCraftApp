@@ -37,24 +37,7 @@
 
                         <mat-error *ngIf="prodServ.form.controls['item_image'].errors?.required">This field is mandatory</mat-error>
 
-                        <!-- <mat-form-field>
-                            <mat-form-field>
-                                <input matInput formControlName="item_seller" placeholder="Product seller*">
 
-                                <mat-error *ngIf="prodServ.form.controls['item_seller'].errors?.required">This field is mandatory</mat-error>
-                            </mat-form-field> -->
-
-                        <!-- 
-                            <mat-select formControlName="item_seller" placeholder="Select*">
-                                <ng-container *ngFor="let seller of sellers">
-                                <mat-option>dummy seller</mat-option>
-
-                                </ng-container>
-
-
-                            </mat-select> -->
-                        <!-- <mat-error>This field is mandatory</mat-error> -->
-                        <!-- </mat-form-field> -->
 
 
 
@@ -92,34 +75,36 @@
 
 
     <ng-container *ngFor="let element of dataSource">
-        <td class="square">
-            <img class="img-res" src="{{element.item_image}}">
+        <div>
+            <td class="square">
+
+                <img class="img-res" src="{{element.item_image}}">
 
 
-        </td>
+            </td>
 
-        <td class="justfy-content-center"> {{ element.item_name}} </td>
-
-
-
-        <td class="ml-2"> {{ element.item_desc}} </td>
-
-
-
-        <td class="ml-2"> {{element.item_price}} </td>
+            <td class="justfy-content-center"> {{ element.item_name}} </td>
 
 
 
-        <!-- <td class="ml-2"> {{ showSellerclient(element.item_seller)}} </td> -->
+            <td class="ml-2"> {{ element.item_desc}} </td>
 
 
 
-        <td class="ml-2">
-            <button mat-icon-button><mat-icon>launch</mat-icon></button>
-            <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
-        </td>
+            <td class="ml-2"> {{element.item_price}} </td>
 
 
+
+
+
+
+
+            <td class="ml-2">
+                <button mat-icon-button><mat-icon>launch</mat-icon></button>
+                <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
+            </td>
+
+        </div>
 
     </ng-container>
 </table>

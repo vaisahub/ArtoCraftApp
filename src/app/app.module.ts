@@ -18,6 +18,7 @@ import { LoginServiceService } from './shared/login-service.service';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { JwtModule, JwtInterceptor } from '@auth0/angular-jwt';
 import { ErrorInterceptor } from './helpers/error-interceptor.service';
+import { TokenInterceptor } from './helpers/jwt.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { ErrorInterceptor } from './helpers/error-interceptor.service';
 
   ],
   providers: [ProductService, LoginServiceService,
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]

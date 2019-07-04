@@ -33,7 +33,9 @@ export class LoginServiceService {
 
     return pass === confirmPass ? null : { notSame: true }
   }
-
+  public getToken(){
+    return  localStorage.getItem('token');
+  }
   constructor(private httpClient: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
@@ -57,7 +59,7 @@ export class LoginServiceService {
           this.currentUserSubject.next(user);
           console.log("Logged In")
           var decoded = JWT(user.token);
-          // console.log(decoded);
+          console.log(decoded);
         }
 
         return user;

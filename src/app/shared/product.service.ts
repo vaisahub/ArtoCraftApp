@@ -37,8 +37,10 @@ export class ProductService {
     console.log("list")
     let token = localStorage.getItem("token")
     var decoded = JWT(token);
+    var uid=decoded.user_id;
     console.log(decoded.user_id);
-    return this.httpClient.get<any>(`https://qf2vytt1i7.execute-api.us-east-1.amazonaws.com/dev/api/v1/items/seller/owned/`+"1")
+    
+    return this.httpClient.get<any>(`https://qf2vytt1i7.execute-api.us-east-1.amazonaws.com/dev/api/v1/items/seller/owned/`)
       .pipe(map(products => {
         // login successful if there's a jwt token in the response
         // if (user && user.token) {
@@ -47,6 +49,7 @@ export class ProductService {
         // this.currentUserSubject.next(user);
         // console.log("Logged In")
         // }
+      
         console.log(products)
         return products;
       }));
@@ -55,33 +58,25 @@ export class ProductService {
   showProduct() {
 
     console.log("Show Product Called")
-    //  let user1={user['username'];user['password']}
-    console.log("list")
-    let token = localStorage.getItem("token")
+ 
     return this.httpClient.get<any>(`https://qf2vytt1i7.execute-api.us-east-1.amazonaws.com/dev/api/v1/items`)
       .pipe(map(products => {
-        // login successful if there's a jwt token in the response
-        // if (user && user.token) {
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
-        // localStorage.setItem('currentUser', JSON.stringify(user));
-        // this.currentUserSubject.next(user);
-        // console.log("Logged In")
-        // }
+        
         console.log(products)
         return products;
       }));
 
   }
-  showSeller(api: string) {
-    alert(api);
-    console.log("Show Product Called")
-    let token = localStorage.getItem("currentUser")
+  showSell(api: string) {
+    // alert(api);
+    console.log(api)
+    // let token = localStorage.getItem("currentUser")
     return this.httpClient.get<any>(api)
-      .pipe(map(products => {
+      .pipe(map(seller => {
 
-        console.log(products)
-        alert(products);
-        return products;
+        console.log(seller)
+        // alert(products);
+        return seller.username;
       }));
 
   }
